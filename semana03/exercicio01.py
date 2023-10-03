@@ -1,31 +1,21 @@
-import random
+def generate():
+    cartela = []
+    numero = 0
 
-def validate_number(matriz, number):
-    for line in range(len(matriz)): 
-        for column in range(len(matriz[line])):
-            if matriz[line][column] == number:
-                return False
+    while len(cartela) < 25:
+        cartela.append(numero)
+        numero += 1
 
-    return True
+        if numero > 99:
+            numero = 0
 
-def generate_bingo():
-    matriz = []
+    return cartela
 
-    for line in range(5):
-        matriz.append([])
+def exibir_cartela(cartela):
+    for i in range(5):
+        linha = cartela[i * 5:(i + 1) * 5]
+        print(linha)
 
-        for column in range(5):
-            random_number = random.randint(0, 99)
-            while not validate_number(matriz, random_number):
-                random_number = random.randint(0, 99)
-            matriz[line].append(random_number)
-            
-    return matriz
+cartela = generate()
+exibir_cartela(cartela)
 
-def main():
-    matriz = generate_bingo()
-    print("Cartela gerada:")
-    for line in matriz:
-        print(line)
-
-main()
