@@ -1,28 +1,28 @@
 conta_bancaria = {
-    "saldo": 0,
-    "depositos": 0,
+    "balance": 0,
+    "deposits": 0,
     "saques": 0,
-    "historico": [],
+    "historic": [],
     "transaction_limit": 1000
 }
 
 def deposit(valor):
     if valor > 0:
-        conta_bancaria["saldo"] += valor
-        conta_bancaria["depositos"] += 1
-        conta_bancaria["historico"].append(f"Depósito de R$ {valor:.2f}")
+        conta_bancaria["balance"] += valor
+        conta_bancaria["deposits"] += 1
+        conta_bancaria["historic"].append(f"Depósito de R$ {valor:.2f}")
 
 def withdraw (valor):
-    if valor > 0 and valor <= conta_bancaria["saldo"] and valor <= conta_bancaria["transaction_limit"]:
-        conta_bancaria["saldo"] -= valor
+    if valor > 0 and valor <= conta_bancaria["balance"] and valor <= conta_bancaria["transaction_limit"]:
+        conta_bancaria["balance"] -= valor
         conta_bancaria["saques"] += 1
-        conta_bancaria["historico"].append(f"Saque de R$ {valor:.2f}")
+        conta_bancaria["historic"].append(f"Saque de R$ {valor:.2f}")
 
 def check():
-    return conta_bancaria["saldo"]
+    return conta_bancaria["balance"]
 
 def movement():
-    return conta_bancaria["historico"]
+    return conta_bancaria["historic"]
 
 while True:
     print("Opções:")
@@ -54,7 +54,7 @@ while True:
         movimentacoes = movement()
         for movimentacao in movimentacoes:
             print(movimentacao)
-        print(f"Quantidade de depósitos: {conta_bancaria['depositos']}")
+        print(f"Quantidade de depósitos: {conta_bancaria['deposits']}")
         print(f"Quantidade de saques: {conta_bancaria['saques']}")
     elif choice == "5":
         print("Saindo do sistema. Obrigado!")
