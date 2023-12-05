@@ -1,0 +1,6 @@
+Bruno: Notas: [10], Média: 10.00
+Alex: Notas: [6], Média: 6.00
+Lucas: Notas: [6], Média: 6.00
+Jonas: Notas: [4], Média: 4.00
+Arthur: Notas: [10], Média: 10.00
+Eduardo: Notas: [10], Média: 10.00
